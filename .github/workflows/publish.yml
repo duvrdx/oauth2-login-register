@@ -21,8 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Semantic Release
-        uses: semantic-release/semantic-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GH_SECRET }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_SECRET }}
