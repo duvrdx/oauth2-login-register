@@ -21,16 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Determine version bump
-        id: version
-        run: echo "##vso[task.setvariable variable=VERSION_BUMP;isOutput=true]$(node scripts/determine-version.js)"
-
-      - name: Bump version
-        run: npm version ${{ steps.version.outputs.VERSION_BUMP }}
-
-      - name: Publish to npm
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_SECRET}}" > .npmrc
-          npm publish
+      - name: Semantic Release
+        uses: semantic-release/semantic-release@v17
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GH_SECRET }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_SECRET }}
