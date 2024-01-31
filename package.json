@@ -10,6 +10,10 @@
       "main"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duvrdx/oauth2-login-register.git"
+  },
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
