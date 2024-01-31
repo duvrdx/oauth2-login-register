@@ -1,5 +1,5 @@
 {
-  "name": "oauth2-login-register",
+  "name": "@duvrdx/oauth2-login-register",
   "version": "1.0.4",
   "description": "Login and Register component OAuth2 based",
   "productName": "OAuth2 Authentication + Login + Register",
