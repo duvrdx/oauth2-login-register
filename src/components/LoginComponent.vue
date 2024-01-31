@@ -60,23 +60,25 @@ import { ref } from 'vue';
 import AuthService from '../services/AuthService';
 import { useQuasar } from 'quasar';
 import { AxiosInstance } from 'axios';
-
+import { useRouter } from 'vue-router';
 
 const username = ref('');
 const password = ref('');
 
 const authService = AuthService;
 const $q = useQuasar();
+const router = useRouter();
 
 export interface RegisterComponentProps {
   apiInstance: AxiosInstance;
   registerRedirect: string;
+  successRedirect: string;
 }
 
-withDefaults(defineProps<RegisterComponentProps>(), {});
+const props = withDefaults(defineProps<RegisterComponentProps>(), {});
 
 const login = async (apiInstance: AxiosInstance, username: string, password: string) => {
-  await authService.login(apiInstance, username, password).then((res) => {
+  await authService.login(apiInstance, username, password).then(() => {
 
     $q.notify({
       color: 'positive',
@@ -84,8 +86,11 @@ const login = async (apiInstance: AxiosInstance, username: string, password: str
       position: 'top',
       icon: 'check_circle',
       timeout: 1000
-    });
-  }).catch((err) => {
+    })
+
+    router.push({ path: props.successRedirect});
+
+  }).catch(() => {
     $q.notify({
       color: 'negative',
       message: 'Login failed',
