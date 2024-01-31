@@ -12,10 +12,6 @@
     "dev": "quasar dev",
     "build": "quasar build"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/duvrdx/oauth2-login-register.git"
-  },
   "dependencies": {
     "axios": "^1.2.1",
     "pinia": "^2.0.11",
