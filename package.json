@@ -5,6 +5,11 @@
   "productName": "OAuth2 Authentication + Login + Register",
   "author": "duvrdx <duvrdx@gmail.com>",
   "private": false,
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
